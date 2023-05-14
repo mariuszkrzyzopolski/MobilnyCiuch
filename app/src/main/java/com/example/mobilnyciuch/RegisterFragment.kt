@@ -49,7 +49,7 @@ class RegisterFragment : Fragment() {
     }
 
     private fun registerUser(mail: String, password: String, repeatedPassword: String, onResult: (RegisterResponse?) -> Unit) {
-        val registerRequest = RegisterUserData(mail, "", password, repeatedPassword)
+        val registerRequest = RegisterUserData("test2@test.com", "sopot", "password", "password")
         val userAPI = RetrofitHelper.getInstance().create(UserService::class.java)
 
         userAPI.registerUser(registerRequest).enqueue(

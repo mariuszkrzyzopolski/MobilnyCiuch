@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
     private val client = OkHttpClient.Builder().build()
-    val baseUrl = "https://localhost:8000/" // bridge to localhost
+    val baseUrl = "https://10.0.2.2:8000/" // bridge to localhost
 
     fun getInstance(): Retrofit {
         return Retrofit.Builder().baseUrl(baseUrl)
