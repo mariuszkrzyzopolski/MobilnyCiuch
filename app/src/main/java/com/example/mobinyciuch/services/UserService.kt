@@ -12,7 +12,20 @@ interface UserService {
     fun registerUser(
         @Body userData: RegisterUserData
     ): Call<RegisterResponse>
+
+    @POST("user/login")
+    fun login(
+        @Body body: LoginUserData
+    ): Call<LoginResponse>
 }
+data class LoginUserData(
+    val mail: String,
+    val password: String,
+)
+
+data class LoginResponse (
+    val token: String
+)
 
 data class RegisterUserData(
     val mail: String,
