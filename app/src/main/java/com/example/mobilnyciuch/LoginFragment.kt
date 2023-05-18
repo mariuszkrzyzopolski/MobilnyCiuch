@@ -50,7 +50,9 @@ class LoginFragment : Fragment() {
             login(login, password) {
                 dialog.dismiss()
                 if (it?.token != null) {
-                    // TODO: save token, and navigate to
+                    // TODO: save token
+                    var navRegister = activity as FragmentNawigation
+                    navRegister.navigateFrag(MenuFragment(),false)
                 } else {
                     val dialog = MaterialAlertDialogBuilder(requireContext())
                         .setMessage("Nie można zalogować użytkownika")
