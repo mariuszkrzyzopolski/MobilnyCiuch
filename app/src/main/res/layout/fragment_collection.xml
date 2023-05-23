@@ -3,12 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".CollectionFragment">
 
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cofnij" />
+
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-        android:id="@+id/carousel"
+        android:id="@+id/carousel_upper"
         android:layout_width="match_parent"
-        android:layout_height="256dp" />
+        android:layout_height="210dp"
+        app:scaleOnScroll="false"/>
+
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/carousel_lower"
+        android:layout_width="match_parent"
+        android:layout_height="210dp" />
+
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/carousel_footwear"
+        android:layout_width="match_parent"
+        android:layout_height="210dp" />
 
 
 </LinearLayout>

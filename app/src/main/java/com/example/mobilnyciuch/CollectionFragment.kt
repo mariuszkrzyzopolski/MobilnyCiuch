@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.mobilnyciuch.databinding.FragmentCollectionBinding
-import org.imaginativeworld.whynotimagecarousel.CarouselItem
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
+import org.imaginativeworld.whynotimagecarousel.model.CarouselType
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -31,49 +32,81 @@ class CollectionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentCollectionBinding.inflate(inflater, container, false)
+        val binding = FragmentCollectionBinding.inflate(inflater, container, false)
         val view = binding.root
-        val carousel: ImageCarousel = binding.carousel
-        carousel.registerLifecycle(viewLifecycleOwner)
-        val list = mutableListOf<CarouselItem>()
-        list.add(
-            CarouselItem(
-                imageUrl = "https://images.unsplash.com/photo-1532581291347-9c39cf10a73c?w=1080",
-                caption = "Photo by Aaron Wu on Unsplash"
-            )
-        )
-        list.add(
-            CarouselItem(
-                imageUrl = "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1080"
-            )
-        )
-        // Image URL with header
-        val headers = mutableMapOf<String, String>()
-        headers["header_key"] = "header_value"
+        val carouselUp: ImageCarousel = binding.carouselUpper
+        val carouselLow: ImageCarousel = binding.carouselLower
+        val carouselFoot: ImageCarousel = binding.carouselFootwear
+        val listUp = mutableListOf<CarouselItem>()
+        val listlow = mutableListOf<CarouselItem>()
+        val listfoot = mutableListOf<CarouselItem>()
 
-        list.add(
+        listUp.add(
             CarouselItem(
-                imageUrl = "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1080",
-                headers = headers
+                imageDrawable = R.drawable.up1,
             )
         )
 
-        list.add(
+        listUp.add(
             CarouselItem(
-                imageDrawable = R.drawable.image_1,
-                caption = "Photo by Kimiya Oveisi on Unsplash"
+                imageDrawable= R.drawable.up2
             )
         )
 
-        list.add(
+        listUp.add(
             CarouselItem(
-                imageDrawable = R.drawable.image_2
+                imageDrawable = R.drawable.up3,
             )
         )
 
-        carousel.setData(list)
+        listUp.add(
+            CarouselItem(
+                imageDrawable = R.drawable.up4,
+            )
+        )
+
+        listlow.add(
+            CarouselItem(
+                imageDrawable = R.drawable.low1,
+            )
+        )
+
+        listlow.add(
+            CarouselItem(
+                imageDrawable = R.drawable.low2,
+            )
+        )
+
+        listlow.add(
+            CarouselItem(
+                imageDrawable = R.drawable.low3,
+            )
+        )
+
+        listfoot.add(
+            CarouselItem(
+                imageDrawable = R.drawable.foot1,
+            )
+        )
+
+        listfoot.add(
+            CarouselItem(
+                imageDrawable = R.drawable.foot2,
+            )
+        )
+
+        listfoot.add(
+            CarouselItem(
+                imageDrawable = R.drawable.foot3,
+            )
+        )
+
+        carouselUp.addData(listUp)
+        carouselUp.autoWidthFixing = true
+        carouselUp.carouselType = CarouselType.SHOWCASE
+        carouselLow.addData(listlow)
+        carouselFoot.addData(listfoot)
         return view
-//        return inflater.inflate(R.layout.fragment_collection, container, false)
     }
 
     companion object {

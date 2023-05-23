@@ -20,6 +20,11 @@ class MenuFragment : Fragment() {
             navRegister.navigateFrag(LoginFragment(), false)
         }
 
+        view.findViewById<Button>(R.id.button_collectionPreview).setOnClickListener {
+            var navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(CollectionFragment(), false)
+        }
+
         return view
     }
 }
