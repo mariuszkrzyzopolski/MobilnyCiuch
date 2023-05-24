@@ -4,4 +4,5 @@
     <string name="username">Login</string>
     <string name="password">Hasło</string>
     <string name="confirm_password">Potwierdź hasło</string>
+    <string name="cofnij">Cofnij</string>
 </resources>

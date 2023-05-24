@@ -9,26 +9,30 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_collection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cofnij" />
+        android:layout_gravity="end"
+        android:layout_margin="10dp"
+        android:text="@string/cofnij" />
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel_upper"
         android:layout_width="match_parent"
-        android:layout_height="210dp"
-        app:scaleOnScroll="false"/>
+        android:layout_height="200dp"
+        app:imageScaleType="fitXY" />
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel_lower"
         android:layout_width="match_parent"
-        android:layout_height="210dp" />
+        android:layout_height="200dp"
+        app:imageScaleType="fitXY" />
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel_footwear"
         android:layout_width="match_parent"
-        android:layout_height="210dp" />
+        android:layout_height="200dp"
+        app:imageScaleType="fitXY" />
 
 
 </LinearLayout>
