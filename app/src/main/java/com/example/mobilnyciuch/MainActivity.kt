@@ -3,13 +3,15 @@ package com.example.mobilnyciuch
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.mobilnyciuch.helpers.RetrofitHelper
+import com.example.mobinyciuch.services.UserService
 
 class MainActivity : AppCompatActivity(), FragmentNawigation{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        supportFragmentManager.beginTransaction().add(R.id.container,LoginFragment()).commit()
+        val userService = RetrofitHelper.getInstance().create(UserService::class.java)
+        supportFragmentManager.beginTransaction().add(R.id.container,LoginFragment(userService)).commit()
 
     }
 

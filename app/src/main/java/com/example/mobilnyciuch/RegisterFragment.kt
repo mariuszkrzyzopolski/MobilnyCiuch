@@ -92,6 +92,7 @@ class RegisterFragment : Fragment() {
 
     private fun navigateToLoginPage() {
         var navRegister = activity as FragmentNawigation
-        navRegister.navigateFrag(LoginFragment(),false)
+        val userService = RetrofitHelper.getInstance().create(UserService::class.java)
+        navRegister.navigateFrag(LoginFragment(userService),false)
     }
 }

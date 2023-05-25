@@ -19,7 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginFragment : Fragment() {
+class LoginFragment(private val userService: UserService) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,9 +67,9 @@ class LoginFragment : Fragment() {
         return view
     }
 
-    private fun login(mail: String, password: String, onResult: (LoginResponse?) -> Unit) {
+    fun login(mail: String, password: String, onResult: (LoginResponse?) -> Unit) {
         val loginRequest = LoginUserData(mail, password)
-        val userAPI = RetrofitHelper.getInstance().create(UserService::class.java)
+        val userAPI = userService
 
         userAPI.login(loginRequest).enqueue(
             object : Callback<LoginResponse> {
