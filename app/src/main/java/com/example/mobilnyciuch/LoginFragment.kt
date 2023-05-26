@@ -30,7 +30,7 @@ class LoginFragment(private val userService: UserService) : Fragment() {
 
         view.findViewById<Button>(R.id.btn_register).setOnClickListener{
          var navRegister = activity as FragmentNawigation
-         navRegister.navigateFrag(RegisterFragment(), false)
+         navRegister.navigateFrag(RegisterFragment(userService), false)
         }
 
         view.findViewById<Button>(R.id.btn_login).setOnClickListener {
