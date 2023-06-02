@@ -44,7 +44,7 @@ dependencies {
 
     // Circle Indicator (To fix the xml preview "Missing classes" error)
     implementation 'me.relex:circleindicator:2.1.6'
-
+    implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.1.0'
     testImplementation 'junit:junit:4.13.2'
