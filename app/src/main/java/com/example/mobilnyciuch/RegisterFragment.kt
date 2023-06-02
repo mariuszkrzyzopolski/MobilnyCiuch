@@ -16,7 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RegisterFragment : Fragment() {
+class RegisterFragment(private val userService: UserService) : Fragment() {
     private var _binding: FragmentNawigation?= null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,9 +64,9 @@ class RegisterFragment : Fragment() {
      return view
     }
 
-    private fun registerUser(mail: String, password: String, repeatedPassword: String, onResult: (RegisterResponse?) -> Unit) {
+    fun registerUser(mail: String, password: String, repeatedPassword: String, onResult: (RegisterResponse?) -> Unit) {
         val registerRequest = RegisterUserData(mail, "city", password, repeatedPassword)
-        val userAPI = RetrofitHelper.getInstance().create(UserService::class.java)
+        val userAPI = userService
 
         userAPI.registerUser(registerRequest).enqueue(
             object : Callback<RegisterResponse> {

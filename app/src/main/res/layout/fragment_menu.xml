@@ -60,7 +60,7 @@
             android:layout_marginTop="15dp"/>
 
         <Button
-            android:id="@+id/button_setPreview"
+            android:id="@+id/button_creatingSets"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tworzenie zestawu"
@@ -69,7 +69,7 @@
             android:layout_marginTop="15dp"/>
 
         <Button
-            android:id="@+id/button_creatingSets"
+            android:id="@+id/button_setPreview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Podgląd zestawu"
