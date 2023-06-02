@@ -1,47 +1,64 @@
 package com.example.mobinyciuch.services
 
+import android.net.Uri
+import androidx.lifecycle.ViewModel
 import com.example.mobilnyciuch.R
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
 interface CollectionService {
     fun getCollection(): Collection
-    fun addCollectionItem(item: CarouselItem)
+    fun addCollectionItem(url: Uri?, type: String)
     fun removeCollectionItem(item: CarouselItem)
 }
 
-class CollectionServiceImpl : CollectionService {
-    private val collection = Collection(listOf(), listOf(), listOf())
+class CollectionViewModel: ViewModel() {
+    private val collectionService = CollectionServiceImpl()
 
-    override fun getCollection(): Collection {
-        val listUp = listOf(
+    fun getCollection(): Collection {
+        return collectionService.getCollection()
+    }
+
+    fun addCollectionItem(url: Uri?, type: String) {
+        collectionService.addCollectionItem(url, type)
+    }
+
+    fun removeCollectionItem(item: CarouselItem) {
+        collectionService.removeCollectionItem(item)
+    }
+}
+
+class CollectionServiceImpl : CollectionService {
+    private var collection: Collection = init()
+
+    fun init(): Collection {
+        collection = Collection(mutableListOf(
             CarouselItem(imageDrawable = R.drawable.up1),
             CarouselItem(imageDrawable = R.drawable.up2),
             CarouselItem(imageDrawable = R.drawable.up3),
             CarouselItem(imageDrawable = R.drawable.up4),
-        )
-
-        val listLow = listOf(
+        ), mutableListOf(
             CarouselItem(imageDrawable = R.drawable.low1),
             CarouselItem(imageDrawable = R.drawable.low2),
             CarouselItem(imageDrawable = R.drawable.low3),
-        )
-
-        val listFoot = listOf(
+        ), mutableListOf(
             CarouselItem(imageDrawable = R.drawable.foot1),
             CarouselItem(imageDrawable = R.drawable.foot2),
             CarouselItem(imageDrawable = R.drawable.foot3),
-        )
-
-        return Collection(listUp, listLow, listFoot)
+        ))
+        return collection
+    }
+    override fun getCollection(): Collection {
+        return collection
     }
 
-    override fun addCollectionItem(item: CarouselItem) {
-        if (item.headers?.get("type") == "upper")
-            collection.listUp.plus(item)
-        else if (item.headers?.get("type") == "lower")
-            collection.listLow.plus(item)
-        else if (item.headers?.get("type") == "footwear")
-            collection.listFoot.plus(item)
+    override fun addCollectionItem(url: Uri?, type: String) {
+        val item = CarouselItem(imageUrl=url.toString())
+        if (type == "upper")
+            collection.listUp.add(item)
+        else if (type == "lower")
+            collection.listLow.add(item)
+        else if (type == "footwear")
+            collection.listFoot.add(item)
     }
 
     override fun removeCollectionItem(item: CarouselItem) {
@@ -55,7 +72,7 @@ class CollectionServiceImpl : CollectionService {
 }
 
 data class Collection(
-    val listUp: List<CarouselItem>,
-    val listLow: List<CarouselItem>,
-    val listFoot: List<CarouselItem>
+    val listUp: MutableList<CarouselItem>,
+    val listLow: MutableList<CarouselItem>,
+    val listFoot: MutableList<CarouselItem>
 )

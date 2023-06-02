@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.mobilnyciuch.databinding.FragmentCollectionBinding
-import com.example.mobinyciuch.services.CollectionServiceImpl
+import com.example.mobinyciuch.services.CollectionViewModel
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
-import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
 
-class CollectionFragment : Fragment() {
+class CollectionFragment() : Fragment() {
+    private val collectionService: CollectionViewModel by activityViewModels()
     private var _binding: FragmentCollectionBinding? = null
     private val binding get() = _binding!!
 
@@ -26,11 +27,9 @@ class CollectionFragment : Fragment() {
         val carouselLow: ImageCarousel = binding.carouselLower
         val carouselFoot: ImageCarousel = binding.carouselFootwear
 
-        val collection = CollectionServiceImpl().getCollection()
-
-        carouselUp.addData(collection.listUp)
-        carouselLow.addData(collection.listLow)
-        carouselFoot.addData(collection.listFoot)
+        carouselUp.addData(collectionService.getCollection().listUp)
+        carouselLow.addData(collectionService.getCollection().listLow)
+        carouselFoot.addData(collectionService.getCollection().listFoot)
 
         view.findViewById<Button>(R.id.button_collection).setOnClickListener {
             var navRegister = activity as FragmentNawigation
