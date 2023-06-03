@@ -28,18 +28,13 @@ class SetPreviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_set_preview, container, false)
-        // Create an instance of the ItemCollectionService
         itemCollectionService = ItemCollectionServiceImpl()
 
-        //val linearLayout = rootView.findViewById<LinearLayout>(R.id.linearLayoutImages)
-
-        // Example usage: Get the sets from the service
         lifecycleScope.launch {
             val sets = withContext(Dispatchers.IO) {
                 itemCollectionService.getSets()
             }
 
-            // Use the sets data for your UI
             updateUIWithSets(sets, rootView)
         }
 
@@ -69,7 +64,6 @@ class SetPreviewFragment : Fragment() {
                     // Remove the set from the ItemCollectionService
                     itemCollectionService.removeSet(set.id)
 
-                    // Remove the cardView from the linearLayout
                     linearLayout.removeView(cardView)
 
                     if (sets.isEmpty()) {
@@ -77,7 +71,6 @@ class SetPreviewFragment : Fragment() {
                     }
                 }
 
-                // Add the cardView to the linearLayout
                 linearLayout.addView(cardView)
             }
         }
@@ -87,8 +80,7 @@ class SetPreviewFragment : Fragment() {
         val noSetsTextView = TextView(requireContext())
         noSetsTextView.text = "Użytkownik nie posiada żadnego zestawu"
         noSetsTextView.gravity = Gravity.CENTER
-
-        // Add layout parameters to make the TextView occupy the available space
+        
         val layoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.MATCH_PARENT

@@ -4,7 +4,7 @@ import com.example.mobilnyciuch.R
 import com.example.mobinyciuch.services.ItemCollectionServiceImpl.Set
 
 interface ItemCollectionService {
-    fun getSets(): List<Set>
+    fun getSets(): MutableList<Set>
     fun removeSet(item: Int)
 }
 
