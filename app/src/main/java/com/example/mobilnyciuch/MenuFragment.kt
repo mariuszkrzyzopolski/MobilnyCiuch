@@ -27,6 +27,11 @@ class MenuFragment : Fragment() {
             navRegister.navigateFrag(CollectionFragment(), false)
         }
 
+        view.findViewById<Button>(R.id.button_addClothes).setOnClickListener {
+            var navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(AddToCollectionFragment(), false)
+        }
+        
         view.findViewById<Button>(R.id.button_setPreview).setOnClickListener {
             var navRegister = activity as FragmentNawigation
             navRegister.navigateFrag(SetPreviewFragment(), false)
