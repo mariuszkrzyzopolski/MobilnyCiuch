@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -38,6 +39,11 @@ class SetPreviewFragment : Fragment() {
             updateUIWithSets(sets, rootView)
         }
 
+        rootView.findViewById<Button>(R.id.sets_back).setOnClickListener {
+            var navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(MenuFragment(), false)
+        }
+
         return rootView
     }
 
@@ -53,6 +59,9 @@ class SetPreviewFragment : Fragment() {
                 val imageView2 = cardView.findViewById<ImageView>(R.id.image2)
                 val imageView3 = cardView.findViewById<ImageView>(R.id.image3)
                 val btnClose = cardView.findViewById<ImageButton>(R.id.btnClose)
+                val setText = cardView.findViewById<TextView>(R.id.setText)
+
+                setText.text = "Zestaw nr ${set.id}"
 
                 // Set the images for each ImageView using the set's collection
                 imageView1.setImageResource(set.collection[0])
@@ -80,7 +89,7 @@ class SetPreviewFragment : Fragment() {
         val noSetsTextView = TextView(requireContext())
         noSetsTextView.text = "Użytkownik nie posiada żadnego zestawu"
         noSetsTextView.gravity = Gravity.CENTER
-        
+
         val layoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.MATCH_PARENT
