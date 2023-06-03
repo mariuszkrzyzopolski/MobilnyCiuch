@@ -39,14 +39,14 @@ class AddToCollectionFragment : Fragment() {
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_CAPTURE_CODE && resultCode == Activity.RESULT_OK) {
-            selectedImage!!.setImageURI(image_uri)
-            val bitmap = uriToBitmap(image_uri!!)
-            selectedImage!!.setImageBitmap(bitmap)
-        }
-        if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
-            image_uri = data.data
-            selectedImage!!.setImageURI(image_uri)
-        }
+//        if (requestCode == IMAGE_CAPTURE_CODE && resultCode == Activity.RESULT_OK) {
+//            selectedImage!!.setImageURI(image_uri)
+//            val bitmap = uriToBitmap(image_uri!!)
+//            selectedImage!!.setImageBitmap(bitmap)
+//        }
+//        if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
+//            image_uri = data.data
+//            selectedImage!!.setImageURI(image_uri)
+//        }
     }
 }
