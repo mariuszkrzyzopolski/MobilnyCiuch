@@ -7,32 +7,72 @@
     android:orientation="vertical"
     tools:context=".CollectionFragment">
 
-
     <Button
         android:id="@+id/button_collection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_gravity="end"
-        android:layout_margin="10dp"
+        android:layout_marginStart="308dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/cofnij" />
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel_upper"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:imageScaleType="fitXY" />
+        app:imageScaleType="fitXY" >
+
+        <ImageButton
+            android:id="@+id/delete_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/close"
+            tools:layout_editor_absoluteX="383dp"
+            tools:layout_editor_absoluteY="6dp" />
+    </org.imaginativeworld.whynotimagecarousel.ImageCarousel>
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel_lower"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:imageScaleType="fitXY" />
+        app:imageScaleType="fitXY" >
+
+        <ImageButton
+            android:id="@+id/delete_low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/close"
+            tools:layout_editor_absoluteX="381dp"
+            tools:layout_editor_absoluteY="4dp" />
+    </org.imaginativeworld.whynotimagecarousel.ImageCarousel>
 
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel_footwear"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:imageScaleType="fitXY" />
+        app:imageScaleType="fitXY" >
+
+        <ImageButton
+            android:id="@+id/delete_foot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/close"
+            tools:layout_editor_absoluteX="380dp"
+            tools:layout_editor_absoluteY="7dp" />
+    </org.imaginativeworld.whynotimagecarousel.ImageCarousel>
 
 
 </LinearLayout>

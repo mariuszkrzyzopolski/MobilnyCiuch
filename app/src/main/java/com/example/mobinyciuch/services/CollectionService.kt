@@ -8,7 +8,7 @@ import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 interface CollectionService {
     fun getCollection(): Collection
     fun addCollectionItem(url: Uri?, type: String)
-    fun removeCollectionItem(item: CarouselItem)
+    fun removeCollectionItem(item: Int, carousel: String)
 }
 
 class CollectionViewModel: ViewModel() {
@@ -22,8 +22,8 @@ class CollectionViewModel: ViewModel() {
         collectionService.addCollectionItem(url, type)
     }
 
-    fun removeCollectionItem(item: CarouselItem) {
-        collectionService.removeCollectionItem(item)
+    fun removeCollectionItem(item: Int, carousel: String) {
+        collectionService.removeCollectionItem(item, carousel)
     }
 }
 
@@ -61,13 +61,13 @@ class CollectionServiceImpl : CollectionService {
             collection.listFoot.add(item)
     }
 
-    override fun removeCollectionItem(item: CarouselItem) {
-        if (item.headers?.get("type") == "upper")
-            collection.listUp.minus(item)
-        else if (item.headers?.get("type") == "lower")
-            collection.listLow.minus(item)
-        else if (item.headers?.get("type") == "footwear")
-            collection.listFoot.minus(item)
+    override fun removeCollectionItem(item: Int, carousel: String) {
+        if (carousel == "upper")
+            collection.listUp.removeAt(item)
+        else if (carousel == "lower")
+            collection.listLow.removeAt(item)
+        else if (carousel == "footwear")
+            collection.listFoot.removeAt(item)
     }
 }
 

@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity(), FragmentNawigation{
         setContentView(R.layout.activity_main)
         val userService = RetrofitHelper.getInstance().create(UserService::class.java)
         supportFragmentManager.beginTransaction().add(R.id.container,LoginFragment(userService)).commit()
-
     }
 
     override fun navigateFrag(fragment: Fragment, addToStack: Boolean) {
