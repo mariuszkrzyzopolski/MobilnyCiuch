@@ -12,16 +12,19 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.activityViewModels
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.example.mobinyciuch.services.ItemCollectionService
 import com.example.mobinyciuch.services.ItemCollectionServiceImpl
 import androidx.lifecycle.lifecycleScope
+import com.example.mobinyciuch.services.CollectionViewModel
+import com.example.mobinyciuch.services.ItemCollectionViewModel
 
 
 class SetPreviewFragment : Fragment() {
-    private lateinit var itemCollectionService: ItemCollectionService
+    private val itemCollectionService: ItemCollectionViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +32,6 @@ class SetPreviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_set_preview, container, false)
-        itemCollectionService = ItemCollectionServiceImpl()
 
         lifecycleScope.launch {
             val sets = withContext(Dispatchers.IO) {
