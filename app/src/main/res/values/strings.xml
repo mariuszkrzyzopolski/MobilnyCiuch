@@ -6,4 +6,10 @@
     <string name="confirm_password">Potwierdź hasło</string>
     <string name="cofnij">Cofnij</string>
     <string name="Zatwierdz">Zatwierdź</string>
+    <string name="kliknij_aby_doda">kliknij aby dodać</string>
+    <string-array name="categories">
+        <item>Góra</item>
+        <item>Dół</item>
+        <item>Buty</item>
+    </string-array>
 </resources>
