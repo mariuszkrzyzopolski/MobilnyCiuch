@@ -1,0 +1,3 @@
+com.example.mobilnyciuch.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

@@ -21,11 +21,10 @@ import com.example.mobinyciuch.services.ItemCollectionServiceImpl
 import androidx.lifecycle.lifecycleScope
 import com.example.mobinyciuch.services.CollectionViewModel
 import com.example.mobinyciuch.services.ItemCollectionViewModel
+import com.example.mobinyciuch.services.UserService
 
 
-class SetPreviewFragment : Fragment() {
-    private val itemCollectionService: ItemCollectionViewModel by activityViewModels()
-
+class SetPreviewFragment(private val itemCollectionService: ItemCollectionViewModel) : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -49,7 +48,7 @@ class SetPreviewFragment : Fragment() {
         return rootView
     }
 
-    private fun updateUIWithSets(sets: List<ItemCollectionServiceImpl.Set>, rootView: View) {
+     fun updateUIWithSets(sets: List<ItemCollectionServiceImpl.Set>, rootView: View) {
         val linearLayout = rootView.findViewById<LinearLayout>(R.id.linearLayoutImages)
 
         if (sets.isEmpty()) {

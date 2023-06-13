@@ -11,8 +11,7 @@ interface ItemCollectionService {
     fun createSet(collection: List<Int>)
 }
 
-class ItemCollectionViewModel: ViewModel() {
-    private val itemCollectionService = ItemCollectionServiceImpl()
+public class ItemCollectionViewModel(var itemCollectionService: ItemCollectionService): ViewModel() {
 
     fun getSets(): MutableList<Set> {
         return itemCollectionService.getSets()

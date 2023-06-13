@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "com.example.mobilnyciuch.app-mergeDebugResources-42:/layout/activity_main.xml",
+        "source": "com.example.mobilnyciuch.app-main-45:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.mobilnyciuch.app-mergeDebugResources-42:/layout/fragment_set_preview.xml",
+        "source": "com.example.mobilnyciuch.app-main-45:/layout/fragment_set_preview.xml"
+    },
+    {
+        "merged": "com.example.mobilnyciuch.app-mergeDebugResources-42:/layout/fragment_add_set.xml",
+        "source": "com.example.mobilnyciuch.app-main-45:/layout/fragment_add_set.xml"
+    },
+    {
+        "merged": "com.example.mobilnyciuch.app-mergeDebugResources-42:/layout/fragment_collection.xml",
+        "source": "com.example.mobilnyciuch.app-main-45:/layout/fragment_collection.xml"
+    },
+    {
+        "merged": "com.example.mobilnyciuch.app-mergeDebugResources-42:/layout/fragment_register.xml",
+        "source": "com.example.mobilnyciuch.app-main-45:/layout/fragment_register.xml"
+    },
+    {
+        "merged": "com.example.mobilnyciuch.app-mergeDebugResources-42:/layout/fragment_add_to_collection.xml",
+        "source": "com.example.mobilnyciuch.app-main-45:/layout/fragment_add_to_collection.xml"
+    },
+    {
+        "merged": "com.example.mobilnyciuch.app-mergeDebugResources-42:/layout/fragment_menu.xml",
+        "source": "com.example.mobilnyciuch.app-main-45:/layout/fragment_menu.xml"
+    },
+    {
+        "merged": "com.example.mobilnyciuch.app-mergeDebugResources-42:/layout/fragment_login.xml",
+        "source": "com.example.mobilnyciuch.app-main-45:/layout/fragment_login.xml"
+    },
+    {
+        "merged": "com.example.mobilnyciuch.app-mergeDebugResources-42:/layout/set_card_item.xml",
+        "source": "com.example.mobilnyciuch.app-main-45:/layout/set_card_item.xml"
+    }
+]

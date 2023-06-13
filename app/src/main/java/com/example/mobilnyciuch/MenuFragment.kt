@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.activityViewModels
 import com.example.mobilnyciuch.helpers.RetrofitHelper
+import com.example.mobinyciuch.services.ItemCollectionServiceImpl
+import com.example.mobinyciuch.services.ItemCollectionViewModel
 import com.example.mobinyciuch.services.UserService
 
 class MenuFragment : Fragment() {
@@ -34,7 +37,8 @@ class MenuFragment : Fragment() {
         
         view.findViewById<Button>(R.id.button_setPreview).setOnClickListener {
             var navRegister = activity as FragmentNawigation
-            navRegister.navigateFrag(SetPreviewFragment(), false)
+            val viewModel =  ItemCollectionViewModel(ItemCollectionServiceImpl())
+            navRegister.navigateFrag(SetPreviewFragment(viewModel), false)
         }
 
         view.findViewById<Button>(R.id.button_creatingSets).setOnClickListener {

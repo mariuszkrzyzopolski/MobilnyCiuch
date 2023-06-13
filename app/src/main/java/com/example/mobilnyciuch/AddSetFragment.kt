@@ -14,6 +14,7 @@ import com.example.mobinyciuch.services.ItemCollectionViewModel
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.listener.CarouselOnScrollListener
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class AddSetFragment : Fragment() {
     private val collectionService: CollectionViewModel by activityViewModels()
@@ -85,6 +86,14 @@ class AddSetFragment : Fragment() {
                 collectionService.getCollection().listLow[low_chosen],
                 collectionService.getCollection().listFoot[foot_chosen]
             )
+
+            val dialog = MaterialAlertDialogBuilder(requireContext())
+                .setMessage("Poprawnie utworzono zestaw")
+                .setPositiveButton("OK") { dialog, which ->
+                    dialog.dismiss()
+                }
+                .create()
+            dialog.show()
         }
 
         view.findViewById<Button>(R.id.button_collection).setOnClickListener {
