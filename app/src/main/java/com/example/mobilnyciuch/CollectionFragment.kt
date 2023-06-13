@@ -86,18 +86,24 @@ class CollectionFragment() : Fragment() {
             collectionService.getCollection().listUp.removeAt(top_chosen)
             collectionService.removeCollectionItem(top_chosen, "up")
             linearLayout.removeView(top_item)
+            var navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(CollectionFragment(), false)
         }
 
         delete_low.setOnClickListener {
             collectionService.getCollection().listLow.removeAt(low_chosen)
             collectionService.removeCollectionItem(low_chosen, "low")
             linearLayout.removeView(low_item)
+            var navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(CollectionFragment(), false)
         }
 
         delete_foot.setOnClickListener {
             collectionService.getCollection().listFoot.removeAt(foot_chosen)
             collectionService.removeCollectionItem(foot_chosen, "foot")
             linearLayout.removeView(foot_item)
+            var navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(CollectionFragment(), false)
         }
 
         view.findViewById<Button>(R.id.button_collection).setOnClickListener {
