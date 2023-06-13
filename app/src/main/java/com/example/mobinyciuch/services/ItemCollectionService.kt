@@ -1,11 +1,31 @@
 package com.example.mobinyciuch.services
 
+import androidx.lifecycle.ViewModel
 import com.example.mobilnyciuch.R
 import com.example.mobinyciuch.services.ItemCollectionServiceImpl.Set
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
 interface ItemCollectionService {
     fun getSets(): MutableList<Set>
     fun removeSet(item: Int)
+    fun createSet(collection: List<Int>)
+}
+
+class ItemCollectionViewModel: ViewModel() {
+    private val itemCollectionService = ItemCollectionServiceImpl()
+
+    fun getSets(): MutableList<Set> {
+        return itemCollectionService.getSets()
+    }
+
+    fun removeSet(item: Int) {
+        itemCollectionService.removeSet(item)
+    }
+
+    fun createSet(carouselItem: CarouselItem, carouselItem1: CarouselItem, carouselItem2: CarouselItem) {
+        var list = listOf(carouselItem.imageDrawable, carouselItem1.imageDrawable, carouselItem2.imageDrawable)
+        itemCollectionService.createSet(list as List<Int>)
+    }
 }
 
 class ItemCollectionServiceImpl : ItemCollectionService {
@@ -27,6 +47,11 @@ class ItemCollectionServiceImpl : ItemCollectionService {
         if (setToRemove != null) {
             sets.remove(setToRemove)
         }
+    }
+
+    override fun createSet(collection: List<Int>) {
+        val id = sets.size + 1
+        sets.add(Set(id, collection))
     }
 
     data class Set(

@@ -14,7 +14,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import com.example.mobilnyciuch.databinding.FragmentAddToCollectionBinding
-import com.example.mobinyciuch.services.CollectionServiceImpl
 import com.example.mobinyciuch.services.CollectionViewModel
 import java.io.FileDescriptor
 import java.io.IOException
@@ -67,7 +66,6 @@ class AddToCollectionFragment() : Fragment() {
         }
 
         collectionService.addCollectionItem(image_uri, "upper")
-        print("DEBUG")
     }
 
     private fun uriToBitmap(selectedFileUri: Uri): Bitmap? {

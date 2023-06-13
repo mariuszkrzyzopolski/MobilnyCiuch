@@ -37,6 +37,11 @@ class MenuFragment : Fragment() {
             navRegister.navigateFrag(SetPreviewFragment(), false)
         }
 
+        view.findViewById<Button>(R.id.button_creatingSets).setOnClickListener {
+            var navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(AddSetFragment(), false)
+        }
+
         return view
     }
 }
