@@ -16,14 +16,17 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ * Fragment for user registration
+ */
+
 class RegisterFragment(private val userService: UserService) : Fragment() {
-    private var _binding: FragmentNawigation?= null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-      var view = inflater.inflate(R.layout.fragment_register, container, false)
+      val view = inflater.inflate(R.layout.fragment_register, container, false)
 
       view.findViewById<Button>(R.id.btn_login_reg).setOnClickListener {
           navigateToLoginPage()
@@ -53,7 +56,7 @@ class RegisterFragment(private val userService: UserService) : Fragment() {
                 val message = if (it?.token != null) successMessage else errorMessage
                 val dialog = MaterialAlertDialogBuilder(requireContext())
                     .setMessage(message)
-                    .setPositiveButton("OK") { dialog, which ->
+                    .setPositiveButton("OK") { dialog, _ ->
                         dialog.dismiss()
                         if (it?.token != null) navigateToLoginPage()
                     }
@@ -64,6 +67,14 @@ class RegisterFragment(private val userService: UserService) : Fragment() {
      return view
     }
 
+    /**
+     * Register user
+     * @param mail user mail
+     * @param password user password
+     * @param repeatedPassword repeated user password
+     * @param onResult callback function
+     * @return callback function
+     */
     fun registerUser(mail: String, password: String, repeatedPassword: String, onResult: (RegisterResponse?) -> Unit) {
         val registerRequest = RegisterUserData(mail, "city", password, repeatedPassword)
         val userAPI = userService
@@ -90,8 +101,11 @@ class RegisterFragment(private val userService: UserService) : Fragment() {
         )
     }
 
+    /**
+     * Navigate to login page, after successful registration
+     */
     private fun navigateToLoginPage() {
-        var navRegister = activity as FragmentNawigation
+        val navRegister = activity as FragmentNawigation
         val userService = RetrofitHelper.getInstance().create(UserService::class.java)
         navRegister.navigateFrag(LoginFragment(userService),false)
     }
