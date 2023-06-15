@@ -57,7 +57,7 @@ class SetPreviewFragment : Fragment() {
      * @param sets List of Sets
      * @param rootView View
      */
-    private fun updateUIWithSets(sets: List<ItemCollectionServiceImpl.Set>, rootView: View) {
+    fun updateUIWithSets(sets: List<ItemCollectionServiceImpl.Set>, rootView: View) {
         val linearLayout = rootView.findViewById<LinearLayout>(R.id.linearLayoutImages)
 
         if (sets.isEmpty()) {
