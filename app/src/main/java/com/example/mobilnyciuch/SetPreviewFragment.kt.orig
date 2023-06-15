@@ -19,10 +19,16 @@ import com.example.mobinyciuch.services.ItemCollectionServiceImpl
 import androidx.lifecycle.lifecycleScope
 import com.example.mobinyciuch.services.ItemCollectionViewModel
 
+<<<<<<< HEAD
+
+=======
 /**
  * Fragment with a preview of all the sets, initial and created by the user.
  * @property itemCollectionService ItemCollectionService(sets)
  */
+class SetPreviewFragment : Fragment() {
+    private val itemCollectionService: ItemCollectionViewModel by activityViewModels()
+>>>>>>> 9b969d8729c06bb2a808018dadf61804cce143ca
 
 class SetPreviewFragment(private val itemCollectionService: ItemCollectionViewModel) : Fragment() {
     override fun onCreateView(
@@ -48,12 +54,16 @@ class SetPreviewFragment(private val itemCollectionService: ItemCollectionViewMo
         return rootView
     }
 
+<<<<<<< HEAD
+     fun updateUIWithSets(sets: List<ItemCollectionServiceImpl.Set>, rootView: View) {
+=======
     /**
      * Updates the UI with the sets.
      * @param sets List of Sets
      * @param rootView View
      */
- fun updateUIWithSets(sets: List<ItemCollectionServiceImpl.Set>, rootView: View) {
+    private fun updateUIWithSets(sets: List<ItemCollectionServiceImpl.Set>, rootView: View) {
+>>>>>>> 9b969d8729c06bb2a808018dadf61804cce143ca
         val linearLayout = rootView.findViewById<LinearLayout>(R.id.linearLayoutImages)
 
         if (sets.isEmpty()) {

@@ -7,6 +7,16 @@
     <string name="cofnij">Cofnij</string>
     <string name="Zatwierdz">Zatwierdź</string>
     <string name="kliknij_aby_doda">kliknij aby dodać</string>
+    <string name="dodaj">dodaj</string>
+    <string name="mobilnyciuch">mobilnyCiuch</string>
+    <string name="zaloguj_si">Zaloguj się</string>
+    <string name="utw_rz_konto">Utwórz konto</string>
+    <string name="wyloguj">Wyloguj</string>
+    <string name="dodanie_ubrania_do_kolekcji">Dodanie ubrania do kolekcji</string>
+    <string name="podgl_d_kolekcji">Podgląd kolekcji</string>
+    <string name="tworzenie_zestawu">Tworzenie zestawu</string>
+    <string name="podgl_d_zestawu">Podgląd zestawu</string>
+    <string name="zestaw">Zestaw</string>
     <string-array name="categories">
         <item>Góra</item>
         <item>Dół</item>

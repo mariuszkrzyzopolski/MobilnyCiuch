@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="96dp"
-            android:text="dodaj" />
+            android:text="@string/dodaj" />
 
         <Spinner
             android:id="@+id/selectCategory"

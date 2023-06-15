@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="11dp"
-            android:text="mobilnyCiuch"
+            android:text="@string/mobilnyciuch"
             android:textColor="#000"
             android:textSize="15sp" />
 
@@ -92,7 +92,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="40dp"
 
-                android:text="Zaloguj się" />
+                android:text="@string/zaloguj_si" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_register_reg"
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
                 android:layout_toStartOf="@id/btn_login_reg"
-                android:text="Utwórz konto" />
+                android:text="@string/utw_rz_konto" />
         </RelativeLayout>
     </LinearLayout>
 

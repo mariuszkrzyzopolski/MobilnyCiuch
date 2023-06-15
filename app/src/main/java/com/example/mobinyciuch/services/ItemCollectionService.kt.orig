@@ -14,12 +14,16 @@ interface ItemCollectionService {
     fun createSet(collection: List<Int>)
 }
 
+<<<<<<< HEAD
+public class ItemCollectionViewModel(var itemCollectionService: ItemCollectionService): ViewModel() {
+=======
 /**
-
  * shared ViewModel for Sets
  * @property itemCollectionService ItemCollectionServiceImpl
  */
-  public class ItemCollectionViewModel(var itemCollectionService: ItemCollectionService): ViewModel() {
+class ItemCollectionViewModel: ViewModel() {
+    private val itemCollectionService = ItemCollectionServiceImpl()
+>>>>>>> 9b969d8729c06bb2a808018dadf61804cce143ca
 
     /**
      * getSets - function for get sets

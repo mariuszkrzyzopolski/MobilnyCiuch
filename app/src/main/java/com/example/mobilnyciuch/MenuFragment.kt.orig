@@ -39,9 +39,14 @@ class MenuFragment : Fragment() {
         }
         
         view.findViewById<Button>(R.id.button_setPreview).setOnClickListener {
-            val navRegister = activity as FragmentNawigation
+<<<<<<< HEAD
+            var navRegister = activity as FragmentNawigation
             val viewModel =  ItemCollectionViewModel(ItemCollectionServiceImpl())
             navRegister.navigateFrag(SetPreviewFragment(viewModel), false)
+=======
+            val navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(SetPreviewFragment(), false)
+>>>>>>> 9b969d8729c06bb2a808018dadf61804cce143ca
         }
 
         view.findViewById<Button>(R.id.button_creatingSets).setOnClickListener {

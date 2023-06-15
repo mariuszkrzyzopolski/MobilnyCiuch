@@ -103,16 +103,19 @@ class AddSetFragment : Fragment() {
                 collectionService.getCollection().listLow[low_chosen],
                 collectionService.getCollection().listFoot[foot_chosen]
             )
- 	    var navRegister = activity as FragmentNawigation
+<<<<<<< HEAD
+
             val dialog = MaterialAlertDialogBuilder(requireContext())
-          
                 .setMessage("Poprawnie utworzono zestaw")
                 .setPositiveButton("OK") { dialog, which ->
                     dialog.dismiss()
-                    navRegister.navigateFrag(SetPreviewFragment(), false)
                 }
                 .create()
             dialog.show()
+=======
+            var navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(SetPreviewFragment(), false)
+>>>>>>> 9b969d8729c06bb2a808018dadf61804cce143ca
         }
 
         view.findViewById<Button>(R.id.button_collection).setOnClickListener {
