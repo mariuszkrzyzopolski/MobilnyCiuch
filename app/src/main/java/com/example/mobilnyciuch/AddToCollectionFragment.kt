@@ -11,8 +11,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Spinner
 import com.example.mobilnyciuch.databinding.FragmentAddToCollectionBinding
 import com.example.mobinyciuch.services.CollectionViewModel
 import java.io.FileDescriptor
@@ -27,7 +29,7 @@ class AddToCollectionFragment() : Fragment() {
     private val RESULT_LOAD_IMAGE = 123
     val IMAGE_CAPTURE_CODE = 654
     private var selectedImage: ImageView? = null
-
+    private var spinner: Spinner? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,10 @@ class AddToCollectionFragment() : Fragment() {
         val binding = FragmentAddToCollectionBinding.inflate(inflater, container, false)
         val view = binding.root
         selectedImage = binding.selectedImage
+        spinner = binding.selectCategory
+        val adapter = ArrayAdapter.createFromResource(requireContext(), R.array.categories, android.R.layout.simple_spinner_item)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner!!.adapter = adapter
         selectedImage!!.setOnClickListener(View.OnClickListener {
             val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE)
@@ -48,6 +54,16 @@ class AddToCollectionFragment() : Fragment() {
             var navRegister = activity as FragmentNawigation
             navRegister.navigateFrag(MenuFragment(), false)
         }
+        view.findViewById<Button>(R.id.button_add_item).setOnClickListener(View.OnClickListener {
+            when (spinner!!.selectedItem.toString()) {
+                "Góra" -> collectionService.addCollectionItem(image_uri, "upper")
+                "Dół" -> collectionService.addCollectionItem(image_uri, "lower")
+                "Buty" -> collectionService.addCollectionItem(image_uri, "footwear")
+            }
+            var navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(CollectionFragment(), false)
+        })
+
         return view
 
     }
@@ -64,8 +80,6 @@ class AddToCollectionFragment() : Fragment() {
             image_uri = data.data
             selectedImage?.setImageURI(image_uri)
         }
-
-        collectionService.addCollectionItem(image_uri, "upper")
     }
 
     private fun uriToBitmap(selectedFileUri: Uri): Bitmap? {

@@ -12,16 +12,13 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.fragment.app.activityViewModels
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import com.example.mobinyciuch.services.ItemCollectionService
 import com.example.mobinyciuch.services.ItemCollectionServiceImpl
 import androidx.lifecycle.lifecycleScope
-import com.example.mobinyciuch.services.CollectionViewModel
 import com.example.mobinyciuch.services.ItemCollectionViewModel
-import com.example.mobinyciuch.services.UserService
+
 
 
 class SetPreviewFragment(private val itemCollectionService: ItemCollectionViewModel) : Fragment() {
