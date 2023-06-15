@@ -5,21 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".AddToCollectionFragment">
 
-<<<<<<< HEAD
-    <Button
-        android:id="@+id/button_add_return"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="end"
-        android:layout_marginStart="308dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/cofnij" />
-=======
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="69dp"
@@ -51,7 +36,6 @@
 
 
     </RelativeLayout>
->>>>>>> bb54d45c191116ed8db0a46a4a0be1b5002eb759
 
     <ImageView
         android:id="@+id/selectedImage"
