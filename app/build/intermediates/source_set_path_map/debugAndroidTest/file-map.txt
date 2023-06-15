@@ -1,6 +1,0 @@
-com.example.mobilnyciuch.test.app-annotation-experimental-1.3.0-0 C:\Users\Asia\.gradle\caches\transforms-3\7e37901b931b8b0178a9051525157861\transformed\annotation-experimental-1.3.0\res
-com.example.mobilnyciuch.test.app-core-1.5.0-1 C:\Users\Asia\.gradle\caches\transforms-3\c0d00b67033d0cd6b213a164804bdb16\transformed\core-1.5.0\res
-com.example.mobilnyciuch.test.app-androidTest-2 E:\asia-work\MobilnyCiuch\app\build\generated\res\resValues\androidTest\debug
-com.example.mobilnyciuch.test.app-mergeDebugAndroidTestResources-3 E:\asia-work\MobilnyCiuch\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.example.mobilnyciuch.test.app-mergeDebugAndroidTestResources-4 E:\asia-work\MobilnyCiuch\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.example.mobilnyciuch.test.app-merged_res-5 E:\asia-work\MobilnyCiuch\app\build\intermediates\merged_res\debugAndroidTest
