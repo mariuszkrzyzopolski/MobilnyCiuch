@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
@@ -17,10 +16,15 @@ import org.imaginativeworld.whynotimagecarousel.listener.CarouselOnScrollListene
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
 
+/**
+ * Fragment for collection view
+ * @property collectionService service for collection
+ * @property top_chosen index of chosen top
+ * @property low_chosen index of chosen low
+ * @property foot_chosen index of chosen footwear
+ */
 class CollectionFragment() : Fragment() {
     private val collectionService: CollectionViewModel by activityViewModels()
-    private var _binding: FragmentCollectionBinding? = null
-    private val binding get() = _binding!!
     private var top_chosen: Int = 0
     private var low_chosen: Int = 0
     private var foot_chosen: Int = 0
@@ -42,10 +46,16 @@ class CollectionFragment() : Fragment() {
         var low_item: View? = null
         var foot_item: View? = null
 
+        /**
+         * Adding initial data to carousels
+         */
         carouselUp.addData(collectionService.getCollection().listUp)
         carouselLow.addData(collectionService.getCollection().listLow)
         carouselFoot.addData(collectionService.getCollection().listFoot)
 
+        /**
+         *  Setting change listeners for carousels(during scroll)
+         */
         carouselUp.onScrollListener = object : CarouselOnScrollListener {
             override fun onScrollStateChanged(
                 recyclerView: RecyclerView,
@@ -82,11 +92,14 @@ class CollectionFragment() : Fragment() {
             }
         }
 
+        /**
+         *  Setting click listener for delete current centered item
+         */
         delete_up.setOnClickListener {
             collectionService.getCollection().listUp.removeAt(top_chosen)
             collectionService.removeCollectionItem(top_chosen, "up")
             linearLayout.removeView(top_item)
-            var navRegister = activity as FragmentNawigation
+            val navRegister = activity as FragmentNawigation
             navRegister.navigateFrag(CollectionFragment(), false)
         }
 
@@ -94,7 +107,7 @@ class CollectionFragment() : Fragment() {
             collectionService.getCollection().listLow.removeAt(low_chosen)
             collectionService.removeCollectionItem(low_chosen, "low")
             linearLayout.removeView(low_item)
-            var navRegister = activity as FragmentNawigation
+            val navRegister = activity as FragmentNawigation
             navRegister.navigateFrag(CollectionFragment(), false)
         }
 
@@ -102,12 +115,12 @@ class CollectionFragment() : Fragment() {
             collectionService.getCollection().listFoot.removeAt(foot_chosen)
             collectionService.removeCollectionItem(foot_chosen, "foot")
             linearLayout.removeView(foot_item)
-            var navRegister = activity as FragmentNawigation
+            val navRegister = activity as FragmentNawigation
             navRegister.navigateFrag(CollectionFragment(), false)
         }
 
         view.findViewById<Button>(R.id.button_collection).setOnClickListener {
-            var navRegister = activity as FragmentNawigation
+            val navRegister = activity as FragmentNawigation
             navRegister.navigateFrag(MenuFragment(), false)
         }
 

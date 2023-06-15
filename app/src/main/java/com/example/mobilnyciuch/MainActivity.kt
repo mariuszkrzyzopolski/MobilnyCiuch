@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import com.example.mobilnyciuch.helpers.RetrofitHelper
 import com.example.mobinyciuch.services.UserService
 
+/**
+ * Activity responsible for navigation between fragments and navigate to login fragment
+ */
 class MainActivity : AppCompatActivity(), FragmentNawigation{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

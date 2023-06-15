@@ -21,10 +21,17 @@ import java.io.FileDescriptor
 import java.io.IOException
 import androidx.fragment.app.activityViewModels
 
+/**
+ *  Fragment for adding new item to collection
+ *  @property collectionService - service for collection
+ *  @property image_uri - localization of chosen image
+ *  @property RESULT_LOAD_IMAGE - code for loading image from gallery
+ *  @property IMAGE_CAPTURE_CODE - code for taking photo
+ *  @property selectedImage - image view for chosen image
+ *  @property spinner - spinner for choosing category(Góra, Dół, Buty)
+ */
 class AddToCollectionFragment() : Fragment() {
     private val collectionService: CollectionViewModel by activityViewModels()
-    private var _binding: FragmentAddToCollectionBinding? = null
-    private val binding get() = _binding!!
     var image_uri: Uri? = null
     private val RESULT_LOAD_IMAGE = 123
     val IMAGE_CAPTURE_CODE = 654
@@ -51,7 +58,7 @@ class AddToCollectionFragment() : Fragment() {
             startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE)
         })
         view.findViewById<Button>(R.id.button_add_return).setOnClickListener {
-            var navRegister = activity as FragmentNawigation
+            val navRegister = activity as FragmentNawigation
             navRegister.navigateFrag(MenuFragment(), false)
         }
         view.findViewById<Button>(R.id.button_add_item).setOnClickListener(View.OnClickListener {
@@ -60,7 +67,7 @@ class AddToCollectionFragment() : Fragment() {
                 "Dół" -> collectionService.addCollectionItem(image_uri, "lower")
                 "Buty" -> collectionService.addCollectionItem(image_uri, "footwear")
             }
-            var navRegister = activity as FragmentNawigation
+            val navRegister = activity as FragmentNawigation
             navRegister.navigateFrag(CollectionFragment(), false)
         })
 
@@ -68,6 +75,12 @@ class AddToCollectionFragment() : Fragment() {
 
     }
 
+    /**
+     *  Function for handling result of taking photo or choosing image from gallery
+     *  @param requestCode - code of request
+     *  @param resultCode - code of result
+     *  @param data - intent with data
+     */
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -82,6 +95,11 @@ class AddToCollectionFragment() : Fragment() {
         }
     }
 
+    /**
+     *  Function for converting uri to bitmap
+     *  @param selectedFileUri - uri of chosen image
+     *  @return bitmap of chosen image
+     */
     private fun uriToBitmap(selectedFileUri: Uri): Bitmap? {
         try {
             val contentResolver = requireActivity().contentResolver

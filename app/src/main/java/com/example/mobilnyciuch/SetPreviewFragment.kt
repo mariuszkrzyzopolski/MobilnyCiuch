@@ -22,7 +22,10 @@ import androidx.lifecycle.lifecycleScope
 import com.example.mobinyciuch.services.CollectionViewModel
 import com.example.mobinyciuch.services.ItemCollectionViewModel
 
-
+/**
+ * Fragment with a preview of all the sets, initial and created by the user.
+ * @property itemCollectionService ItemCollectionService(sets)
+ */
 class SetPreviewFragment : Fragment() {
     private val itemCollectionService: ItemCollectionViewModel by activityViewModels()
 
@@ -49,6 +52,11 @@ class SetPreviewFragment : Fragment() {
         return rootView
     }
 
+    /**
+     * Updates the UI with the sets.
+     * @param sets List of Sets
+     * @param rootView View
+     */
     private fun updateUIWithSets(sets: List<ItemCollectionServiceImpl.Set>, rootView: View) {
         val linearLayout = rootView.findViewById<LinearLayout>(R.id.linearLayoutImages)
 
@@ -87,6 +95,10 @@ class SetPreviewFragment : Fragment() {
         }
     }
 
+    /**
+     * Shows a message that the user has no sets.
+     * @param linearLayout LinearLayout
+     */
     private fun showEmpty(linearLayout: LinearLayout) {
         val noSetsTextView = TextView(requireContext())
         noSetsTextView.text = "Użytkownik nie posiada żadnego zestawu"

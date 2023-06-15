@@ -9,7 +9,7 @@
         android:id="@+id/button_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wyloguj"
+        android:text="@string/wyloguj"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
@@ -30,7 +30,7 @@
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="11dp"
-        android:text="mobilnyCiuch"
+        android:text="@string/mobilnyciuch"
         android:textColor="#000"
         android:textSize="15sp" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/button_addClothes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dodanie ubrania do kolekcji"
+            android:text="@string/dodanie_ubrania_do_kolekcji"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"/>
@@ -54,7 +54,7 @@
             android:id="@+id/button_collectionPreview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Podgląd kolekcji"
+            android:text="@string/podgl_d_kolekcji"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"/>
@@ -63,7 +63,7 @@
             android:id="@+id/button_creatingSets"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tworzenie zestawu"
+            android:text="@string/tworzenie_zestawu"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"/>
@@ -72,7 +72,7 @@
             android:id="@+id/button_setPreview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Podgląd zestawu"
+            android:text="@string/podgl_d_zestawu"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"/>

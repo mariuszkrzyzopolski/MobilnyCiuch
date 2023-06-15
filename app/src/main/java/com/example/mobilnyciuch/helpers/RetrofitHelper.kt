@@ -10,7 +10,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
+/**
+ * RetrofitHelper is a singleton class that provides Retrofit instance
+ * to make API calls.
+ */
 object RetrofitHelper {
+    /**
+     * OkHttpClient is used to add authentication header to login/register request
+     */
     private val client = OkHttpClient.Builder().authenticator(object : Authenticator {
         @Throws(IOException::class)
         override fun authenticate(route: Route?, response: Response): Request? {
@@ -28,6 +35,10 @@ object RetrofitHelper {
     }).build()
     val baseUrl = "http://10.0.2.2:8000/" // bridge to localhost
 
+    /**
+     * Retrofit instance is used to make API calls
+     * @return Retrofit instance
+     */
     fun getInstance(): Retrofit {
         return Retrofit.Builder().baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())

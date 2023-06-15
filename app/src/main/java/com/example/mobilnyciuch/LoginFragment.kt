@@ -7,11 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import com.example.mobilnyciuch.helpers.RetrofitHelper
 import com.example.mobinyciuch.services.LoginResponse
 import com.example.mobinyciuch.services.LoginUserData
-import com.example.mobinyciuch.services.RegisterResponse
-import com.example.mobinyciuch.services.RegisterUserData
 import com.example.mobinyciuch.services.UserService
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
@@ -19,6 +16,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ * Fragment for login
+ * @property userService UserService
+ * @property login user login
+ * @property password user password
+ * @property dialog login dialogbox
+ * @property view view of fragment
+ */
 class LoginFragment(private val userService: UserService) : Fragment() {
 
     override fun onCreateView(
@@ -67,6 +72,14 @@ class LoginFragment(private val userService: UserService) : Fragment() {
         return view
     }
 
+    /**
+     * Function for login
+     * @param mail user mail
+     * @param password user password
+     * @param onResult result of login
+     * @property loginRequest request for login
+     * @property userAPI user API
+     */
     fun login(mail: String, password: String, onResult: (LoginResponse?) -> Unit) {
         val loginRequest = LoginUserData(mail, password)
         val userAPI = userService
