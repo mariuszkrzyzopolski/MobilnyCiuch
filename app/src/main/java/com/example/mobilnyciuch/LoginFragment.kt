@@ -34,8 +34,8 @@ class LoginFragment(private val userService: UserService) : Fragment() {
         var view = inflater.inflate(R.layout.fragment_login, container, false)
 
         view.findViewById<Button>(R.id.btn_register).setOnClickListener{
-         var navRegister = activity as FragmentNawigation
-         navRegister.navigateFrag(RegisterFragment(userService), false)
+            var navRegister = activity as FragmentNawigation
+            navRegister.navigateFrag(RegisterFragment(userService), false)
         }
 
         view.findViewById<Button>(R.id.btn_login).setOnClickListener {

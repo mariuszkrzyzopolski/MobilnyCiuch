@@ -34,7 +34,7 @@ class MenuFragment : Fragment() {
             val navRegister = activity as FragmentNawigation
             navRegister.navigateFrag(AddToCollectionFragment(), false)
         }
-        
+
         view.findViewById<Button>(R.id.button_setPreview).setOnClickListener {
             val navRegister = activity as FragmentNawigation
             navRegister.navigateFrag(SetPreviewFragment(), false)

@@ -26,11 +26,11 @@ class RegisterFragment(private val userService: UserService) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-      val view = inflater.inflate(R.layout.fragment_register, container, false)
+        val view = inflater.inflate(R.layout.fragment_register, container, false)
 
-      view.findViewById<Button>(R.id.btn_login_reg).setOnClickListener {
-          navigateToLoginPage()
-       }
+        view.findViewById<Button>(R.id.btn_login_reg).setOnClickListener {
+            navigateToLoginPage()
+        }
 
         view.findViewById<Button>(R.id.btn_register_reg).setOnClickListener {
             val loginEditText = view.findViewById<TextInputEditText>(R.id.loginEditText)
@@ -64,7 +64,7 @@ class RegisterFragment(private val userService: UserService) : Fragment() {
                 dialog.show()
             }
         }
-     return view
+        return view
     }
 
     /**
