@@ -5,9 +5,7 @@ import androidx.fragment.app.FragmentFactory
 import androidx.fragment.app.testing.FragmentScenario
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.lifecycle.Lifecycle
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.platform.app.InstrumentationRegistry
 import com.example.mobinyciuch.services.Collection
 import com.example.mobinyciuch.services.CollectionViewModel
 import io.mockk.MockKAnnotations
@@ -60,7 +58,7 @@ class CollectionFragmentTest {
             override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
                 return when (className) {
                     CollectionFragment::class.java.name -> {
-                        fragment
+                        CollectionFragment()
                     }
                     else -> super.instantiate(classLoader, className)
                 }
