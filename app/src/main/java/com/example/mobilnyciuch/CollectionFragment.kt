@@ -24,7 +24,7 @@ import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
  * @property foot_chosen index of chosen footwear
  */
 class CollectionFragment() : Fragment() {
-    private val collectionService: CollectionViewModel by activityViewModels()
+    val collectionService: CollectionViewModel by activityViewModels()
     private var top_chosen: Int = 0
     private var low_chosen: Int = 0
     private var foot_chosen: Int = 0
